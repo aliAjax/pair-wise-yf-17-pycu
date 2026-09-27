@@ -18,7 +18,8 @@ body {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -165,12 +166,23 @@ label span {
   font-size: 13px;
 }
 
-input {
+input,
+select {
   width: 100%;
   min-height: 42px;
   border-radius: 7px;
   border: 1px solid var(--border);
   padding: 0 12px;
+}
+
+select {
+  background: #ffffff;
+}
+
+input:disabled,
+select:disabled {
+  background: #f1f5f9;
+  color: #64748b;
 }
 
 .records {
@@ -208,10 +220,207 @@ input {
   line-height: 1.6;
 }
 
+/* ---------- 现场录入工作台 ---------- */
+
+.field-grid.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.heading-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.heading-actions button {
+  padding: 0 14px;
+}
+
+.muted {
+  color: #64748b;
+}
+
+.aside-sub {
+  margin: 20px 0 10px;
+  font-size: 15px;
+}
+
+.stop-list {
+  display: grid;
+  gap: 8px;
+}
+
+.stop-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: #fbfdff;
+  font-size: 14px;
+}
+
+.stop-row small {
+  margin-left: 8px;
+  color: #94a3b8;
+}
+
+.stop-row b {
+  color: var(--primary);
+}
+
+.chips button.chip-active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.badge-danger {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.badge-ok {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.badge-warn {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.badge-muted {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th,
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  white-space: nowrap;
+}
+
+th {
+  color: #64748b;
+  background: #f8fafc;
+  font-weight: 600;
+}
+
+tr.row-danger td {
+  background: #fff7f7;
+}
+
+.dev-over {
+  color: #b91c1c;
+  font-weight: 700;
+}
+
+.ops {
+  display: flex;
+  gap: 8px;
+}
+
+button.mini {
+  min-height: 30px;
+  padding: 0 10px;
+  font-size: 13px;
+}
+
+button.mini.danger {
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+.retest-row td {
+  background: #f8fafc;
+  white-space: normal;
+}
+
+.retest-box {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px dashed var(--secondary);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.form-actions .primary {
+  min-width: 120px;
+}
+
+.saved-tip {
+  color: #15803d;
+  font-weight: 600;
+}
+
+.readonly-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 7px;
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.report-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-bottom: 14px;
+  color: #526071;
+}
+
+.missing-list {
+  margin: 0;
+  padding-left: 20px;
+  color: #b45309;
+  line-height: 1.9;
+}
+
+.session-item {
+  cursor: pointer;
+}
+
+.session-item.active {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 25%, transparent);
+}
+
 @media (max-width: 860px) {
   .metrics,
   .workspace,
-  .field-grid {
+  .field-grid,
+  .field-grid.three {
     grid-template-columns: 1fr;
   }
 
